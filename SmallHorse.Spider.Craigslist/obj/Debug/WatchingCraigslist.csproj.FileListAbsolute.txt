@@ -1,0 +1,10 @@
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Debug\WatchingCraigslist.exe
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Debug\WatchingCraigslist.pdb
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.EmailForm.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.MainForm.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.Properties.Resources.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.Advanced.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.csproj.GenerateResource.Cache
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.exe
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.pdb
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Debug\WatchingCraigslist.csprojResolveAssemblyReference.cache

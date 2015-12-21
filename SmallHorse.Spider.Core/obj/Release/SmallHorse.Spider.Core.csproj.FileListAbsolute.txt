@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\bin\Release\SmallHorse.Spider.Core.dll
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\bin\Release\SmallHorse.Spider.Core.pdb
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\bin\Release\HtmlAgilityPack.dll
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\bin\Release\HtmlAgilityPack.xml
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\obj\Release\SmallHorse.Spider.Core.dll
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\MLS.Helper\obj\Release\SmallHorse.Spider.Core.pdb

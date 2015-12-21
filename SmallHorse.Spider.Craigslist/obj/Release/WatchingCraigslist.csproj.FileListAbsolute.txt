@@ -1,0 +1,13 @@
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Release\WatchingCraigslist.exe
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Release\WatchingCraigslist.pdb
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.EmailForm.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.MainForm.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.Properties.Resources.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.Advanced.resources
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.csproj.GenerateResource.Cache
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.exe
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.pdb
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.dll
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.pdb
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.xml
+C:\360极速浏览器下载\WatchingCraigslist_Source\WatchingCraigslist\WatchingCraigslist\obj\Release\WatchingCraigslist.csprojResolveAssemblyReference.cache

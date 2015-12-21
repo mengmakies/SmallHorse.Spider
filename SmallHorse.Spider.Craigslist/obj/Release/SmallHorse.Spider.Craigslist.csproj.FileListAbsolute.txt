@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.EmailForm.resources
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.MainForm.resources
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.Properties.Resources.resources
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.Advanced.resources
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\SmallHorse.Spider.Craigslist.exe.config
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\SmallHorse.Spider.Craigslist.exe
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\SmallHorse.Spider.Craigslist.pdb
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.dll
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\SmallHorse.Spider.Core.dll
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\SmallHorse.Spider.Core.pdb
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\bin\Release\HtmlAgilityPack.xml
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.exe
+C:\Users\Administrator\Desktop\mln技术研究\craisglist\WatchingCraigslist\WatchingCraigslist\obj\Release\SmallHorse.Spider.Craigslist.pdb
