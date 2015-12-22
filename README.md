@@ -4,8 +4,8 @@ Spider Website Data
 原理：基于HtmlAgilityPack类库分析HTML页面的结构。
 
 采集各种网站数据，目前已可以采集如下网站：
+
 Craigslist  www.Craigslist.org
-介绍：
 Craigslist是美国大型免费分类广告网站。是美国最火的。该网站上没有图片，只有密密麻麻的文字，标着各种生活信息。类似国内的58同城。
 
 Trulia   www.Trulia.com
