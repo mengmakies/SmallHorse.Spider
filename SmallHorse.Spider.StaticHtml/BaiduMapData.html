@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
+		#l-map{height:300px;width:100%;}
+		#r-result{width:100%;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=etOO4vZPegelpSGeX52fdll5"></script>
+	<title>抓取百度地图数据</title>
+</head>
+<body>
+<div>请输入关键字：<input type="text" value="小马" id="txt-keyword" />
+<input class="button" type="button" value="搜索" onclick="onSearch()" id="localsearch"> 
+<input class="button" type="button" value="导出Excel" onclick="onExportExcel()" id="btn-export">&nbsp;
+<span id="info" style="color:red;">共查询到0条数据</span>
+</div>
+	<div id="l-map"></div>
+	<div id="r-result"></div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</html>
+<script type="text/javascript">
+	var pagesize = 100;
+	
+	// 百度地图API功能
+	var map = new BMap.Map("l-map");            // 创建Map实例
+	map.centerAndZoom(new BMap.Point(108.32368,22.822483), 11);
+	
+	
+	var onSearch = function(){
+		$('#info').text("数据搜索中，请稍候...");
+		var myKeys = new Array(); 
+		var keyword = $('#txt-keyword').val();
+		myKeys.push(keyword);
+		var local = new BMap.LocalSearch(map, {
+			renderOptions:{map: map, panel:"r-result",autoViewport:true},
+			pageCapacity:pagesize
+		});
+		local.searchInBounds(myKeys, map.getBounds());
+		local.setSearchCompleteCallback(function(result){
+			if (local.getStatus() == BMAP_STATUS_SUCCESS && result.length > 0){
+				var n = result[0].getNumPois();
+				$('#info').text("关键字【"+keyword+"】共查询到" + n + "条数据（每页"+pagesize+"条）");
+			}
+		});
+	
+	};
+	
+	onSearch();
+	
+	var onExportExcel = function(){
+	
+		var str = "";//"栏位1,栏位2,栏位3\n值1,值2,值3";
+		
+		$('#r-result li').each(function(i,item){
+				var row = "";
+				$(item).find('span').each(function(j,span){
+					var spanVal = $(span).text();
+					if(j>1){
+						spanVal = "," + spanVal;
+					}
+					
+					row += spanVal;
+					
+				});
+				
+				str = str + row + "\n";
+		});
+		
+         str =  encodeURIComponent(str);
+         uri = "data:text/csv;charset=utf-8,\ufeff"+str;
+		var datetime = date2str(new Date(),"yyyyMMdd_hhmmss");
+		var keyword = $('#txt-keyword').val();
+
+		var downloadLink = document.createElement("a");
+		downloadLink.href = uri;
+		downloadLink.download = "百度地图商家【"+keyword+"】_"+datetime+".csv";
+
+		document.body.appendChild(downloadLink);
+		downloadLink.click();
+		document.body.removeChild(downloadLink);
+	};
+	
+	/// <summary>
+	///	格式化显示日期时间
+	/// </summary>
+	/// <param name="x">待显示的日期时间，例如new Date()</param>
+	/// <param name="y">需要显示的格式，例如yyyy-MM-dd hh:mm:ss</param>
+	function date2str(x,y) {
+		var z = {M:x.getMonth()+1,d:x.getDate(),h:x.getHours(),m:x.getMinutes(),s:x.getSeconds()};
+		y = y.replace(/(M+|d+|h+|m+|s+)/g,function(v) {return ((v.length>1?"0":"")+eval('z.'+v.slice(-1))).slice(-2)});
+		return y.replace(/(y+)/g,function(v) {return x.getFullYear().toString().slice(-v.length)});
+	}
+	
+</script>

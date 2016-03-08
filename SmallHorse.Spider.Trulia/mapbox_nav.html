@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Cycling directions</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+<link href="https://www.mapbox.com/base/latest/base.css?v1.0" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<script src='https://www.mapbox.com/bites/00165/mapbox.directions.js'></script>
+<link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.3.0/mapbox.directions.css' type='text/css' />
+
+  <link rel='stylesheet' type='text/css' href='https://www.mapbox.com/bites/00165/mapbox-directions.css' />
+  <link rel='stylesheet' type='text/css' href='https://www.mapbox.com/bites/00165/site.css' />
+
+<!-- 工具箱（绘制） -->
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'></script>
+
+<!-- 定位当前位置 -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+<!--[if lt IE 9]>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+
+<!-- 全屏 -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
+
+<style>
+#inputs,
+#errors,
+#directions {
+    position: absolute;
+    width: 33.3333%;
+    min-width: 200px;
+}
+
+#inputs {
+    z-index: 10;
+    top: 80px;
+    left: 10px;
+}
+
+#directions {
+  z-index: 99;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  
+  #directions {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .leaflet-bottom.leaflet-left {
+    top: 10px;
+    left: inherit;
+    right: 10px;
+  }
+  
+}
+
+
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 10px;
+}
+
+.mapbox-directions-profile {
+    margin-top: 5px;
+	margin-left: 100px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 29px;
+    vertical-align: middle;
+    background: #264258;
+    font: 25px/20px 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+    position: absolute;
+    width: 500px;
+    top: -69px;
+}
+
+.mapbox-directions-profile label {
+    cursor: pointer;
+    vertical-align: top;
+    display: inline-block;
+    border-radius: 26px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+    width: 33.33%;
+}
+
+.mapbox-directions-profile input[type=radio]:checked + label {
+    background: white;
+    color: #50667F;
+}
+
+.mapbox-form-label {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #444;
+    color: rgba(0, 0, 0, .75);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.mapbox-directions-icon {
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    margin: auto;
+}
+.mapbox-directions-icon {
+    /* background-image: url('img/mapbox.directions.png'); */
+    -webkit-background-size: 280px 20px;
+    background-size: 280px 20px;
+    background-repeat: no-repeat;
+    margin: 0;
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+}
+.mapbox-directions-icon {
+    background-color: rgba(255, 255, 255, 0);
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    width: 22px;
+    height: 22px;
+    border-radius: 30px;
+    margin: -1px -1px;
+}
+
+.mapbox-directions-inputs .mapbox-close-icon {
+    top: 10px;
+    left: 450px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+} 
+.mapbox-directions-inputs, .mapbox-directions-inputs *, .mapbox-directions-errors, .mapbox-directions-errors *, .mapbox-directions-routes, .mapbox-directions-routes *, .mapbox-directions-instructions, .mapbox-directions-instructions * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font: 17px/22px 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+}
+
+.mapbox-directions-step-distance{
+    font-size: 14px !important;
+    color: #1AA1DE;}
+
+.mapbox-directions-step-maneuver {
+    font: 18px/22px 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.mapbox-directions-route-heading {
+    font: 17px/22px 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+    color: #A0E0B5 !important;
+    font-weight: bold !important;
+}
+
+.mapbox-directions-route-active {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.09) !important;
+    border-radius: 5px !important;
+    margin-bottom: 10px  !important;
+}
+.mapbox-directions-route-active.start {
+    color: white !important;
+    background-color: transparent; !important;
+}
+
+.mapbox-directions-origin .mapbox-form-label {
+    background-color: #8DDCA7 !important;
+}
+
+.mapbox-form-label {
+    cursor: pointer;
+    background: #264258 !important;
+}
+
+.mapbox-directions-way-name, .mapbox-directions-direction {
+    font: 18px/22px 'Proxima Nova Regular', 'Open Sans', sans-serif !important;
+}
+
+.mapbox-directions-icon.mapbox-reverse-icon.mapbox-directions-reverse-input {
+  display: none  !important;
+}
+
+.mapbox-directions-origin, .mapbox-directions-destination {
+  display: none !important;
+}
+.leaflet-right {
+    left: 0 !important;
+    right: auto !important;
+}
+
+.prose ol {
+    list-style: decimal;
+    margin-left: 10px !important;
+}
+
+</style>
+<div class="prose">
+<div id='map'></div>
+<div id='errors'></div>
+<div id='inputs' class="pin-top"></div>
+<div id='directions' class="prose fill-midnight">
+  <div id='routes'></div>
+  <div id='instructions' class='mapbox-directions-routes'>
+      <ul><li class='mapbox-directions-route mapbox-directions-route-active'>
+          <div class='mapbox-directions-route-heading start pad1y center'>Click two points to start navigation.</div>
+      </li></ul>
+      <div class='mapbox-directions-route-heading'>
+      </div>
+  </div>
+</div>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYWFyb25saWRtYW4iLCJhIjoiNTVucTd0TSJ9.wVh5WkYXWJSBgwnScLupiQ';
+var map = L.mapbox.map('map', 'mapbox.run-bike-hike', {
+    scrollWheelZoom: true,
+    zoomControl: true
+}).setView([40.4236482, -86.9234155], 15);
+
+//new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);// 右下角缩放地图
+     
+map.addControl(L.mapbox.shareControl());// 分享
+L.control.locate().addTo(map);// 当前位置
+L.control.fullscreen().addTo(map);// 全屏
+
+// 地图搜索控件
+var geocoderControl = L.mapbox.geocoderControl('mapbox.places',{
+  autocomplete:true
+});
+geocoderControl.addTo(map);
+
+// 图层切换
+var layers = {
+  RunBikeHike:L.mapbox.tileLayer('mapbox.run-bike-hike'),
+  Streets:L.mapbox.tileLayer('mapbox.streets'),
+  Outdoors:L.mapbox.tileLayer('mapbox.outdoors'),
+  Satellite:L.mapbox.tileLayer('mapbox.streets-satellite'),
+  Pencil:L.mapbox.tileLayer('mapbox.pencil'),
+  Ligth:L.mapbox.tileLayer('mapbox.light'),
+  Dark:L.mapbox.tileLayer('mapbox.dark'),
+  Wheatpaste:L.mapbox.tileLayer('mapbox.wheatpaste'),
+  StreetsBasic:L.mapbox.tileLayer('mapbox.streets-basic'),
+  Comic:L.mapbox.tileLayer('mapbox.comic'),
+  Pirates:L.mapbox.tileLayer('mapbox.pirates'),
+  Emerald:L.mapbox.tileLayer('mapbox.emerald'),
+  HighContrast:L.mapbox.tileLayer('mapbox.high-contrast'),
+};
+
+// 外部数据层
+var exLayers = {
+    'Bike Stations': L.mapbox.tileLayer('examples.bike-locations'),
+    'Bike Lanes': L.mapbox.tileLayer('examples.bike-lanes')
+};
+
+layers.RunBikeHike.addTo(map);// 默认显示RunBikeHike地图
+L.control.layers(layers, exLayers, { position: 'bottomleft' }).addTo(map);
+
+// 工具栏
+var featureGroup = L.featureGroup().addTo(map);
+var drawControl = new L.Control.Draw({
+  edit:{
+    featureGroup:featureGroup
+  },
+  draw:{
+    polygon:true,
+    polyline:true,
+    rectangle:true,
+    circle:true,
+    marker:true
+  }
+}).addTo(map);
+
+map.on('draw:created', showPolygonArea);
+map.on('draw:edited', showPolygonAreaEdited);
+
+function showPolygonAreaEdited(e){
+  e.layers.eachLayer(function(layer){
+    showPolygonArea({layer:layer});
+  })
+}
+
+function showPolygonArea(e){
+  featureGroup.clearLayers();
+  featureGroup.addLayer(e.layer);
+  e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + '.km<sup>2</sup>');
+  e.layer.openPopup();
+}
+
+
+map.touchZoom.disable();
+
+// create the initial directions object, from which the layer
+// and inputs will pull data.
+var directions = L.mapbox.directions();
+
+var directionsLayer = L.mapbox.directions.layer(directions)
+    .addTo(map);
+
+var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
+    .addTo(map);
+directions.setProfile('mapbox.cycling');
+
+var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
+    .addTo(map);
+
+var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
+    .addTo(map);
+
+var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
+    .addTo(map);
+
+var dragging = false;
+var dragLoaded = false;
+
+function startDrag(e) {
+    dragging = true;
+}
+
+function endDrag(e) {
+    dragging = false;
+    fitOffsetBounds();
+}
+
+directionsLayer.originMarker.addEventListener('dragstart', startDrag);
+directionsLayer.originMarker.addEventListener('dragend', endDrag);
+directionsLayer.destinationMarker.addEventListener('dragstart', startDrag);
+directionsLayer.destinationMarker.addEventListener('dragend', endDrag);
+
+directions.on('load', function(e) {
+    if (!dragging) fitOffsetBounds();
+});
+
+function fitOffsetBounds() {
+    map.fitBounds(L.mapbox.featureLayer(directions.directions.routes[0].geometry).getBounds(), {paddingTopLeft: padding, paddingBottomRight: [padding[0] + paddingBottomRight, padding[1]]});
+}
+
+// click listeners to reset search
+map.on('click',function(e){
+  // if destination is known, reset route
+  if(typeof directions.getDestination() !== 'undefined') {
+    directions.setOrigin();
+    directions.setDestination();
+  }
+});
+
+var paddingBottomRight;
+var padding;
+setPadding();
+window.onresize = setPadding;
+
+function setPadding() {
+  padding = [window.innerWidth/10, window.innerHeight/10];
+  
+  if (window.innerWidth > 600) {
+    paddingBottomRight = document.getElementById('directions').offsetWidth;
+  } else {
+    paddingBottomRight = 0;
+  }
+};
+
+</script>
+
+
+</body>
+</html>
